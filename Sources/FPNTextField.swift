@@ -147,7 +147,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                 lblArrowIcon.widthAnchor.constraint(equalToConstant: 20),
                 lblArrowIcon.centerYAnchor.constraint(equalTo: leftView.centerYAnchor),
                 lblArrowIcon.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -10),
-                phoneCodeTextField.trailingAnchor.constraint(equalTo: leftView.trailingAnchor),
+                phoneCodeTextField.leadingAnchor.constraint(equalTo: leftView.leadingAnchor),
                 phoneCodeTextField.topAnchor.constraint(equalTo: leftView.topAnchor),
                 phoneCodeTextField.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
                 phoneCodeTextField.trailingAnchor.constraint(equalTo: lblArrowIcon.leadingAnchor,constant: -5),
