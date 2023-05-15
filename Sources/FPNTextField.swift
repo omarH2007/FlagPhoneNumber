@@ -11,11 +11,19 @@ import UIKit
 open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
 	/// The size of the flag button
-	@objc public var flagButtonSize: CGSize = CGSize(width: 32, height: 32) {
+	@objc public var flagButtonSize: CGSize = CGSize(width: 20, height: 32) {
 		didSet {
 			layoutIfNeeded()
 		}
 	}
+    
+    @objc public let lblArrowIcon: UILabel = {
+        let view = UILabel()
+        view.isUserInteractionEnabled = true
+        view.textAlignment = .center
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
 	private var flagWidthConstraint: NSLayoutConstraint?
 	private var flagHeightConstraint: NSLayoutConstraint?
@@ -34,7 +42,6 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 	private var nbPhoneNumber: NBPhoneNumber?
 	private var formatter: NBAsYouTypeFormatter?
 
-	public var flagButton: UIButton = UIButton()
 
 	open override var font: UIFont? {
 		didSet {
@@ -108,17 +115,14 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 	}
 
 	private func setupFlagButton() {
-		flagButton.imageView?.contentMode = .scaleAspectFit
-		flagButton.accessibilityLabel = "flagButton"
-		flagButton.addTarget(self, action: #selector(displayCountryKeyboard), for: .touchUpInside)
-		flagButton.translatesAutoresizingMaskIntoConstraints = false
-		flagButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        lblArrowIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayCountryKeyboard)))
 	}
 
 	private func setupPhoneCodeTextField() {
 		phoneCodeTextField.font = font
 		phoneCodeTextField.isUserInteractionEnabled = false
 		phoneCodeTextField.translatesAutoresizingMaskIntoConstraints = false
+        phoneCodeTextField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayCountryKeyboard)))
 	}
 
 	private func setupLeftView() {
@@ -130,29 +134,31 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 			// Fallback on earlier versions
 		}
 
-		leftView?.addSubview(flagButton)
+        leftView?.addSubview(lblArrowIcon)
 		leftView?.addSubview(phoneCodeTextField)
 
+        NSLayoutConstraint.activate([
+            lblArrowIcon.widthAnchor.constraint(equalToConstant: 20)])
 
-		flagWidthConstraint = NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
-		flagHeightConstraint = NSLayoutConstraint(item: flagButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
+		flagWidthConstraint = NSLayoutConstraint(item: lblArrowIcon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
+		flagHeightConstraint = NSLayoutConstraint(item: lblArrowIcon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
 
 		flagWidthConstraint?.isActive = true
 		flagHeightConstraint?.isActive = true
 
-		NSLayoutConstraint(item: flagButton, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: lblArrowIcon, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
 
-		NSLayoutConstraint(item: flagButton, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: phoneCodeTextField, attribute: .leading, relatedBy: .equal, toItem: flagButton, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: lblArrowIcon, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: phoneCodeTextField, attribute: .leading, relatedBy: .equal, toItem: lblArrowIcon, attribute: .trailing, multiplier: 1, constant: 10).isActive = true
 		NSLayoutConstraint(item: phoneCodeTextField, attribute: .trailing, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: phoneCodeTextField, attribute: .top, relatedBy: .equal, toItem: leftView, attribute: .top, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: phoneCodeTextField, attribute: .bottom, relatedBy: .equal, toItem: leftView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: phoneCodeTextField, attribute: .top, relatedBy: .equal, toItem: leftView, attribute: .top, multiplier: 1, constant: 10).isActive = true
+		NSLayoutConstraint(item: phoneCodeTextField, attribute: .bottom, relatedBy: .equal, toItem: leftView, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
 	}
 
 	open override func updateConstraints() {
 		super.updateConstraints()
 
-		flagWidthConstraint?.constant = flagButtonSize.width
+        flagWidthConstraint?.constant = flagButtonSize.width
 		flagHeightConstraint?.constant = flagButtonSize.height
 	}
 
@@ -333,7 +339,6 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 			formatter = NBAsYouTypeFormatter(regionCode: countryCode.rawValue)
 		}
 
-		flagButton.setImage(selectedCountry?.flag, for: .normal)
 
 		if let phoneCode = selectedCountry?.phoneCode {
 			phoneCodeTextField.text = phoneCode
