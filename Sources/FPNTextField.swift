@@ -135,12 +135,12 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         leftView?.addSubview(phoneCodeTextField)
         
         if let leftView {
-            leftView.translatesAutoresizingMaskIntoConstraints = false
+
             NSLayoutConstraint.activate([
-                leftView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                leftView.topAnchor.constraint(equalTo: view.topAnchor),
-                leftView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                leftView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
+                view.trailingAnchor.constraint(equalTo: leftView.trailingAnchor),
+                view.topAnchor.constraint(equalTo: leftView.topAnchor),
+                view.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
                 
                 
                 lblArrowIcon.widthAnchor.constraint(equalToConstant: 20),
