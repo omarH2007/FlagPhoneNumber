@@ -30,11 +30,11 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
 	/// The size of the leftView
 	private var leftViewSize: CGSize {
-		let width = flagButtonSize.width + getWidth(text: phoneCodeTextField.text!)
-		let height = bounds.height
-
-		return CGSize(width: width, height: height)
-	}
+        let width = flagButtonSize.width + getWidth(text: phoneCodeTextField.text!)
+        let height = bounds.height
+        
+        return CGSize(width: width, height: height)
+    }
 
 	private var phoneCodeTextField: UITextField = UITextField()
 	private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
@@ -148,7 +148,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                 lblArrowIcon.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -10),
                 phoneCodeTextField.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
                 phoneCodeTextField.topAnchor.constraint(equalTo: leftView.topAnchor,constant: 5),
-                phoneCodeTextField.bottomAnchor.constraint(equalTo: leftView.bottomAnchor,constant: 5),
+                phoneCodeTextField.bottomAnchor.constraint(equalTo: leftView.bottomAnchor,constant: -5),
                 phoneCodeTextField.trailingAnchor.constraint(equalTo: lblArrowIcon.leadingAnchor,constant: -5),
             ])
          
@@ -170,12 +170,11 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 	}
 
 	open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
-		let size = leftViewSize
-		let width: CGFloat = min(bounds.size.width, size.width)
-		let height: CGFloat = min(bounds.size.height, size.height)
-		let newRect: CGRect = CGRect(x: bounds.minX, y: bounds.minY, width: width, height: height)
-
-		return newRect
+        let size = leftViewSize
+        let height: CGFloat = min(bounds.size.height, size.height)
+        let newRect: CGRect = CGRect(x: bounds.minX, y: bounds.minY, width: 90, height: height)
+        
+        return newRect
 	}
 	
 	private func setupCountryPicker() {
