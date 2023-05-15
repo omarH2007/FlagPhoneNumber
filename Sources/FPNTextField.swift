@@ -102,8 +102,8 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 	}
 
 	private func setupPhoneCodeTextField() {
+        phoneCodeTextField.textAlignment = .center
 		phoneCodeTextField.font = font
-		phoneCodeTextField.isUserInteractionEnabled = false
 		phoneCodeTextField.translatesAutoresizingMaskIntoConstraints = false
         phoneCodeTextField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayCountryKeyboard)))
 	}
@@ -125,7 +125,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                 view.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
                 view.widthAnchor.constraint(equalToConstant: 90),
-                
+                view.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1.0),
                 arrowIconLable.widthAnchor.constraint(equalToConstant: 20),
                 arrowIconLable.centerYAnchor.constraint(equalTo: leftView.centerYAnchor),
                 arrowIconLable.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -10),
