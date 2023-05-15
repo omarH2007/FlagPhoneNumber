@@ -129,27 +129,26 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         let view = UIView()
         leftView = UIView()
         leftViewMode = .always
-        phoneCodeTextField.semanticContentAttribute = .forceLeftToRight
         leftView?.addSubview(view)
         
         leftView?.addSubview(lblArrowIcon)
         leftView?.addSubview(phoneCodeTextField)
         
         if let leftView {
-            view.translatesAutoresizingMaskIntoConstraints = false
+            leftView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                view.trailingAnchor.constraint(equalTo: leftView.trailingAnchor),
-                view.topAnchor.constraint(equalTo: leftView.topAnchor),
-                view.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
+                leftView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                leftView.topAnchor.constraint(equalTo: view.topAnchor),
+                leftView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                leftView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
                 
                 
                 lblArrowIcon.widthAnchor.constraint(equalToConstant: 20),
                 lblArrowIcon.centerYAnchor.constraint(equalTo: leftView.centerYAnchor),
                 lblArrowIcon.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -10),
-                phoneCodeTextField.leadingAnchor.constraint(equalTo: leftView.leadingAnchor),
-                phoneCodeTextField.topAnchor.constraint(equalTo: leftView.topAnchor),
-                phoneCodeTextField.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
+                phoneCodeTextField.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
+                phoneCodeTextField.topAnchor.constraint(equalTo: leftView.topAnchor,constant: 5),
+                phoneCodeTextField.bottomAnchor.constraint(equalTo: leftView.bottomAnchor,constant: 5),
                 phoneCodeTextField.trailingAnchor.constraint(equalTo: lblArrowIcon.leadingAnchor,constant: -5),
             ])
          
