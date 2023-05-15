@@ -10,14 +10,8 @@ import UIKit
 
 open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
-	/// The size of the flag button
-	@objc public var flagButtonSize: CGSize = CGSize(width: 20, height: 32) {
-		didSet {
-			layoutIfNeeded()
-		}
-	}
     
-    @objc public let lblArrowIcon: UILabel = {
+    @objc public let arrowIconLable: UILabel = {
         let view = UILabel()
         view.isUserInteractionEnabled = true
         view.textAlignment = .center
@@ -25,18 +19,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         return view
     }()
 
-	private var flagWidthConstraint: NSLayoutConstraint?
-	private var flagHeightConstraint: NSLayoutConstraint?
-
-	/// The size of the leftView
-	private var leftViewSize: CGSize {
-        let width = flagButtonSize.width + getWidth(text: phoneCodeTextField.text!)
-        let height = bounds.height
-        
-        return CGSize(width: width, height: height)
-    }
-
-	private var phoneCodeTextField: UITextField = UITextField()
+	private var phoneCodeTextField: UILabel = UILabel()
 	private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
 	private lazy var phoneUtil: NBPhoneNumberUtil = NBPhoneNumberUtil()
 	private var nbPhoneNumber: NBPhoneNumber?
@@ -115,7 +98,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 	}
 
 	private func setupFlagButton() {
-        lblArrowIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayCountryKeyboard)))
+        arrowIconLable.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayCountryKeyboard)))
 	}
 
 	private func setupPhoneCodeTextField() {
@@ -131,49 +114,39 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         leftViewMode = .always
         leftView?.addSubview(view)
         
-        leftView?.addSubview(lblArrowIcon)
+        leftView?.addSubview(arrowIconLable)
         leftView?.addSubview(phoneCodeTextField)
         
-        if let leftView {
+        if let leftView = leftView {
 
             NSLayoutConstraint.activate([
                 view.trailingAnchor.constraint(equalTo: leftView.trailingAnchor),
                 view.topAnchor.constraint(equalTo: leftView.topAnchor),
                 view.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
+                view.widthAnchor.constraint(equalToConstant: 90),
                 
-                
-                lblArrowIcon.widthAnchor.constraint(equalToConstant: 20),
-                lblArrowIcon.centerYAnchor.constraint(equalTo: leftView.centerYAnchor),
-                lblArrowIcon.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -10),
+                arrowIconLable.widthAnchor.constraint(equalToConstant: 20),
+                arrowIconLable.centerYAnchor.constraint(equalTo: leftView.centerYAnchor),
+                arrowIconLable.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -10),
                 phoneCodeTextField.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
                 phoneCodeTextField.topAnchor.constraint(equalTo: leftView.topAnchor,constant: 5),
                 phoneCodeTextField.bottomAnchor.constraint(equalTo: leftView.bottomAnchor,constant: -5),
-                phoneCodeTextField.trailingAnchor.constraint(equalTo: lblArrowIcon.leadingAnchor,constant: -5),
+                phoneCodeTextField.trailingAnchor.constraint(equalTo: arrowIconLable.leadingAnchor,constant: -5),
             ])
          
         }
-        
 
-        flagWidthConstraint = NSLayoutConstraint(item: lblArrowIcon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
-        flagHeightConstraint = NSLayoutConstraint(item: lblArrowIcon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
-        
-        flagWidthConstraint?.isActive = true
-        flagHeightConstraint?.isActive = true
     }
 
 	open override func updateConstraints() {
 		super.updateConstraints()
 
-        flagWidthConstraint?.constant = flagButtonSize.width
-		flagHeightConstraint?.constant = flagButtonSize.height
 	}
 
 	open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
-        let size = leftViewSize
-        let height: CGFloat = min(bounds.size.height, size.height)
+        let height: CGFloat = min(bounds.size.height,40)
         let newRect: CGRect = CGRect(x: bounds.minX, y: bounds.minY, width: 90, height: height)
-        
         return newRect
 	}
 	
