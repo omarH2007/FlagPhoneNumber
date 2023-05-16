@@ -279,7 +279,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                 if let inputString = formatter?.inputString(cleanedPhoneNumber) {
                     text = remove(dialCode: phoneCode, in: inputString)
                 }
-                (delegate as? FPNTextFieldDelegate)?.fpnDidValidatePhoneNumber(textField: self, isValid: true)
+                (delegate as? FPNTextFieldDelegate)?.fpnDidValidatePhoneNumber(textField: self, country: selectedCountry, isValid: true)
             } else {
                 nbPhoneNumber = nil
 
@@ -288,7 +288,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                         text = remove(dialCode: dialCode, in: inputString)
                     }
                 }
-                (delegate as? FPNTextFieldDelegate)?.fpnDidValidatePhoneNumber(textField: self, isValid: false)
+                (delegate as? FPNTextFieldDelegate)?.fpnDidValidatePhoneNumber(textField: self, country: selectedCountry, isValid: false)
             }
         }
     }
@@ -419,7 +419,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     // - FPNCountryPickerDelegate
 
     func countryPhoneCodePicker(_ picker: FPNCountryPicker, didSelectCountry country: FPNCountry) {
-        (delegate as? FPNTextFieldDelegate)?.fpnDidSelectCountry(name: country.name, dialCode: country.phoneCode, code: country.code.rawValue)
+        (delegate as? FPNTextFieldDelegate)?.fpnDidSelectCountry(country: country)
         selectedCountry = country
     }
 
