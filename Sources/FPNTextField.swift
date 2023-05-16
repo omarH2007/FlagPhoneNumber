@@ -11,6 +11,8 @@ import UIKit
 open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     
+    var validPhoneNumber:NBPhoneNumber? = nil
+
     @objc public let arrowIconLable: UILabel = {
         let view = UILabel()
         view.isUserInteractionEnabled = true
@@ -22,7 +24,11 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     private var phoneCodeTextField: UILabel = UILabel()
     private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
     private lazy var phoneUtil: NBPhoneNumberUtil = NBPhoneNumberUtil()
-    private var nbPhoneNumber: NBPhoneNumber?
+    private var nbPhoneNumber: NBPhoneNumber? {
+        didSet{
+            self.validPhoneNumber = nbPhoneNumber
+        }
+    }
     private var formatter: NBAsYouTypeFormatter?
 
 
@@ -426,6 +432,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         }
         (delegate as? FPNTextFieldDelegate)?.fpnDidSelectCountry(country: country, isValid: validPhoneNumber != nil)
         selectedCountry = country
+        self.validPhoneNumber = validPhoneNumber
     }
 
     // - FPNDelegate
