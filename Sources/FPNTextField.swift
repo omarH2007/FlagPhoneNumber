@@ -11,7 +11,7 @@ import UIKit
 open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     
-    var validPhoneNumber:NBPhoneNumber? = nil
+    public var validPhoneNumber:NBPhoneNumber? = nil
 
     @objc public let arrowIconLable: UILabel = {
         let view = UILabel()
