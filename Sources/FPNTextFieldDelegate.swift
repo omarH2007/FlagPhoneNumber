@@ -9,6 +9,6 @@
 import UIKit
 
 public protocol FPNTextFieldDelegate: UITextFieldDelegate {
-	func fpnDidSelectCountry(country: FPNCountry?)
+	func fpnDidSelectCountry(country: FPNCountry?, isValid: Bool)
 	func fpnDidValidatePhoneNumber(textField: FPNTextField,country: FPNCountry?, isValid: Bool)
 }

@@ -419,7 +419,12 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     // - FPNCountryPickerDelegate
 
     func countryPhoneCodePicker(_ picker: FPNCountryPicker, didSelectCountry country: FPNCountry) {
-        (delegate as? FPNTextFieldDelegate)?.fpnDidSelectCountry(country: country)
+        var validPhoneNumber:NBPhoneNumber? = nil
+        if let phoneCode = selectedCountry?.phoneCode, let number = text {
+            var cleanedPhoneNumber = clean(string: "\(phoneCode) \(number)")
+             validPhoneNumber = getValidNumber(phoneNumber: cleanedPhoneNumber)
+        }
+        (delegate as? FPNTextFieldDelegate)?.fpnDidSelectCountry(country: country, isValid: validPhoneNumber != nil)
         selectedCountry = country
     }
 
