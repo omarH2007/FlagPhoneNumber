@@ -12,6 +12,14 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     
     public var validPhoneNumber:NBPhoneNumber? = nil
+    
+    @objc public let paddingView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }()
 
     @objc public let arrowIconLable: UILabel = {
         let view = UILabel()
@@ -21,7 +29,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         return view
     }()
 
-    private var phoneCodeTextField: UILabel = UILabel()
+    public var phoneCodeTextField: UILabel = UILabel()
     private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
     private lazy var phoneUtil: NBPhoneNumberUtil = NBPhoneNumberUtil()
     private var nbPhoneNumber: NBPhoneNumber? {
@@ -32,6 +40,13 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     private var formatter: NBAsYouTypeFormatter?
 
 
+    open  var borderLeftColor: UIColor? {
+        didSet {
+            paddingView.addBorder(to: .right, in: borderLeftColor ?? .clear, width: 1)
+          
+        }
+    }
+    
     open override var font: UIFont? {
         didSet {
             phoneCodeTextField.font = font
@@ -113,29 +128,37 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     }
 
     private func setupLeftView() {
+
         let view = UIControl()
         leftView = UIView()
         leftViewMode = .always
         leftView?.addSubview(view)
-
         view.addSubview(arrowIconLable)
         view.addSubview(phoneCodeTextField)
+        phoneCodeTextField.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        view.addSubview(paddingView)
         view.addTarget(self, action: #selector(displayCountryKeyboard), for: .touchUpInside)
         if let leftView = leftView {
+            paddingView.translatesAutoresizingMaskIntoConstraints = false
             view.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 view.trailingAnchor.constraint(equalTo: leftView.trailingAnchor),
                 view.topAnchor.constraint(equalTo: leftView.topAnchor),
                 view.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 10),
+                view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 0),
                 arrowIconLable.widthAnchor.constraint(equalToConstant: 20),
                 arrowIconLable.heightAnchor.constraint(equalToConstant: 20),
                 arrowIconLable.centerYAnchor.constraint(equalTo: view.centerYAnchor),
                 arrowIconLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-                phoneCodeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
-                phoneCodeTextField.topAnchor.constraint(equalTo: view.topAnchor,constant: 5),
-                phoneCodeTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -5),
-                phoneCodeTextField.trailingAnchor.constraint(equalTo: arrowIconLable.leadingAnchor,constant: -5),
+                phoneCodeTextField.leadingAnchor.constraint(equalTo: paddingView.trailingAnchor,constant: 8),
+                phoneCodeTextField.topAnchor.constraint(equalTo: view.topAnchor,constant: 2),
+                phoneCodeTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -2),
+                phoneCodeTextField.trailingAnchor.constraint(equalTo: arrowIconLable.leadingAnchor,constant: -6),
+                paddingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+                paddingView.widthAnchor.constraint(equalToConstant: 1),
+                paddingView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0),
+                paddingView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: 0),
+                
             ])
          
         }
@@ -440,5 +463,62 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     internal func fpnDidSelect(country: FPNCountry) {
         setFlag(for: country.code)
+    }
+}
+extension UIView {
+    enum ViewSide {
+        case top
+        case left
+        case bottom
+        case right
+    }
+
+    func addBorders(to sides: [ViewSide], in color: UIColor, width: CGFloat) {
+        sides.forEach { addBorder(to: $0, in: color, width: width) }
+    }
+
+    func addBorder(to side: ViewSide, in color: UIColor, width: CGFloat) {
+        switch side {
+        case .top:
+            addTopBorder(in: color, width: width)
+        case .left:
+            addLeftBorder(in: color, width: width)
+        case .bottom:
+            addBottomBorder(in: color, width: width)
+        case .right:
+            addRightBorder(in: color, width: width)
+        }
+    }
+
+    func addTopBorder(in color: UIColor?, width borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: borderWidth)
+        border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+        addSubview(border)
+    }
+
+    func addBottomBorder(in color: UIColor?, width borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: frame.size.width, height: borderWidth)
+        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        addSubview(border)
+    }
+
+    func addLeftBorder(in color: UIColor?, width borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.frame = CGRect(x: 0, y: 0, width: borderWidth, height: frame.size.height)
+        border.autoresizingMask = [.flexibleHeight, .flexibleRightMargin]
+        addSubview(border)
+    }
+
+    func addRightBorder(in color: UIColor?, width borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.frame = CGRect(x: frame.size.width - borderWidth, y: 0, width: borderWidth, height: frame.size.height)
+        border.autoresizingMask = [.flexibleHeight, .flexibleLeftMargin]
+        addSubview(border)
     }
 }
