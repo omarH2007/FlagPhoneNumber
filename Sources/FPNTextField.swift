@@ -12,12 +12,13 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     
     public var validPhoneNumber:NBPhoneNumber? = nil
+    public var leftViewWidthConstraints: NSLayoutConstraint!
     
     @objc public let paddingView : UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
-
+        view.isHidden = true
         return view
     }()
 
@@ -27,6 +28,27 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         view.textAlignment = .center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    @objc public let flagImage: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleToFill
+        view.layer.cornerRadius = 12
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    @objc public let codeStack: UIStackView = {
+        let stack = UIStackView()
+        stack.distribution = .fill
+        stack.axis = .horizontal
+        stack.alignment = .center
+        stack.spacing = 5
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = .init(top: 5, left: 10, bottom: 5, right: 10)
+        return stack
     }()
 
     public var phoneCodeTextField: UILabel = UILabel()
@@ -124,6 +146,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     private func setupPhoneCodeTextField() {
         phoneCodeTextField.textAlignment = .center
         phoneCodeTextField.font = font
+        phoneCodeTextField.adjustsFontSizeToFitWidth = true
         phoneCodeTextField.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -132,33 +155,36 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         let view = UIControl()
         leftView = UIView()
         leftViewMode = .always
+        leftView?.addSubview(codeStack)
         leftView?.addSubview(view)
-        view.addSubview(arrowIconLable)
-        view.addSubview(phoneCodeTextField)
+        codeStack.addArrangedSubview(paddingView)
+        codeStack.addArrangedSubview(flagImage)
+        codeStack.addArrangedSubview(phoneCodeTextField)
+        codeStack.addArrangedSubview(arrowIconLable)
         phoneCodeTextField.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        view.addSubview(paddingView)
         view.addTarget(self, action: #selector(displayCountryKeyboard), for: .touchUpInside)
         if let leftView = leftView {
             paddingView.translatesAutoresizingMaskIntoConstraints = false
             view.translatesAutoresizingMaskIntoConstraints = false
+            leftViewWidthConstraints = codeStack.widthAnchor.constraint(equalToConstant: 120)
+            leftViewWidthConstraints.priority = .init(999)
+            leftViewWidthConstraints.isActive = true
             NSLayoutConstraint.activate([
                 view.trailingAnchor.constraint(equalTo: leftView.trailingAnchor),
                 view.topAnchor.constraint(equalTo: leftView.topAnchor),
                 view.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 0),
-                arrowIconLable.widthAnchor.constraint(equalToConstant: 20),
-                arrowIconLable.heightAnchor.constraint(equalToConstant: 20),
-                arrowIconLable.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                arrowIconLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-                phoneCodeTextField.leadingAnchor.constraint(equalTo: paddingView.trailingAnchor,constant: 8),
-                phoneCodeTextField.topAnchor.constraint(equalTo: view.topAnchor,constant: 2),
-                phoneCodeTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -2),
-                phoneCodeTextField.trailingAnchor.constraint(equalTo: arrowIconLable.leadingAnchor,constant: -6),
-                paddingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+                arrowIconLable.widthAnchor.constraint(equalToConstant: 16),
+                arrowIconLable.heightAnchor.constraint(equalToConstant: 16),
+                flagImage.heightAnchor.constraint(equalToConstant: 24),
+                flagImage.widthAnchor.constraint(equalToConstant: 24),
                 paddingView.widthAnchor.constraint(equalToConstant: 1),
-                paddingView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0),
-                paddingView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: 0),
-                
+                paddingView.topAnchor.constraint(equalTo: codeStack.topAnchor,constant: 0),
+                paddingView.bottomAnchor.constraint(equalTo: codeStack.bottomAnchor,constant: 0),
+                codeStack.topAnchor.constraint(equalTo: leftView.topAnchor, constant: 0),
+                codeStack.bottomAnchor.constraint(equalTo: leftView.bottomAnchor, constant: 0),
+                codeStack.leadingAnchor.constraint(equalTo: leftView.leadingAnchor, constant: 20),
+                codeStack.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: 0),
             ])
          
         }
@@ -344,6 +370,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
         if let phoneCode = selectedCountry?.phoneCode {
             phoneCodeTextField.text = phoneCode
+            flagImage.image = selectedCountry?.flag
         }
 
         if hasPhoneNumberExample == true {
