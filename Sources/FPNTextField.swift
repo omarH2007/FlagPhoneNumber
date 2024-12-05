@@ -52,6 +52,8 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     }()
 
     public var phoneCodeTextField: UILabel = UILabel()
+    public var canChangeCountry: Bool = true
+    
     private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
     private lazy var phoneUtil: NBPhoneNumberUtil = NBPhoneNumberUtil()
     private var nbPhoneNumber: NBPhoneNumber? {
@@ -218,6 +220,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     }
 
     @objc private func displayCountryKeyboard() {
+        guard canChangeCountry else { return }
         inputView = countryPicker
         inputAccessoryView = getToolBar(with: getCountryListBarButtonItems())
         tintColor = .clear
