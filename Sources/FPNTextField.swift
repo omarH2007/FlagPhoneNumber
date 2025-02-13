@@ -172,10 +172,10 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
             leftViewWidthConstraints.priority = .init(999)
             leftViewWidthConstraints.isActive = true
             NSLayoutConstraint.activate([
-                view.trailingAnchor.constraint(equalTo: leftView.trailingAnchor),
+                view.rightAnchor.constraint(equalTo: leftView.rightAnchor),
                 view.topAnchor.constraint(equalTo: leftView.topAnchor),
                 view.bottomAnchor.constraint(equalTo: leftView.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: leftView.leadingAnchor,constant: 0),
+                view.leftAnchor.constraint(equalTo: leftView.leftAnchor,constant: 0),
                 arrowIconLable.widthAnchor.constraint(equalToConstant: 16),
                 arrowIconLable.heightAnchor.constraint(equalToConstant: 16),
                 flagImage.heightAnchor.constraint(equalToConstant: 24),
@@ -185,8 +185,8 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                 paddingView.bottomAnchor.constraint(equalTo: codeStack.bottomAnchor,constant: 0),
                 codeStack.topAnchor.constraint(equalTo: leftView.topAnchor, constant: 0),
                 codeStack.bottomAnchor.constraint(equalTo: leftView.bottomAnchor, constant: 0),
-                codeStack.leadingAnchor.constraint(equalTo: leftView.leadingAnchor, constant: 20),
-                codeStack.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: 0),
+                codeStack.leftAnchor.constraint(equalTo: leftView.leftAnchor, constant: 20),
+                codeStack.rightAnchor.constraint(equalTo: leftView.rightAnchor, constant: 0),
             ])
          
         }
