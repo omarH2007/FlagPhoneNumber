@@ -185,8 +185,8 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                 paddingView.bottomAnchor.constraint(equalTo: codeStack.bottomAnchor,constant: 0),
                 codeStack.topAnchor.constraint(equalTo: leftView.topAnchor, constant: 0),
                 codeStack.bottomAnchor.constraint(equalTo: leftView.bottomAnchor, constant: 0),
-                codeStack.leftAnchor.constraint(equalTo: leftView.leftAnchor, constant: 20),
-                codeStack.rightAnchor.constraint(equalTo: leftView.rightAnchor, constant: 0),
+                codeStack.leftAnchor.constraint(equalTo: leftView.leftAnchor, constant: 0),
+                codeStack.rightAnchor.constraint(equalTo: leftView.rightAnchor, constant: -20),
             ])
          
         }
