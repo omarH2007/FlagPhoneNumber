@@ -234,7 +234,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     @objc private func resetKeyBoard() {
         inputView = nil
-        inputAccessoryView = nil
+        inputAccessoryView = textFieldInputAccessoryView
         resignFirstResponder()
     }
 
