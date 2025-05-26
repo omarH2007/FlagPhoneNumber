@@ -12,13 +12,13 @@ import UIKit
 open class FBNCountries {
     open var selectedLocale: Locale?
 
-    init() {
+    public init() {
         if let code = Locale.preferredLanguages.first {
             self.selectedLocale = Locale(identifier: code)
         }
     }
     
-    private func getAllCountries() -> [FPNCountry] {
+    public func getAllCountries() -> [FPNCountry] {
         let bundle: Bundle = Bundle.FlagPhoneNumber()
         let resource: String = "countryCodes"
         let jsonPath = bundle.path(forResource: resource, ofType: "json")
