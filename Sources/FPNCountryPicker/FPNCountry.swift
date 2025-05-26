@@ -1,20 +1,22 @@
 import UIKit
 
 public struct FPNCountry {
-	public var code: FPNCountryCode
-	public var name: String
-	public var phoneCode: String
-	var flag: UIImage?
+    public var code: FPNCountryCode
+    public var name: String
+    public var phoneCode: String
+    public var languageCode: String
+    var flag: UIImage?
 
-	init(code: String, name: String, phoneCode: String) {
-		self.name = name
-		self.phoneCode = phoneCode
-		self.code = FPNCountryCode(rawValue: code)!
+    init(code: String, name: String, phoneCode: String,languageCode:String) {
+        self.name = name
+        self.phoneCode = phoneCode
+        self.languageCode = languageCode
+        self.code = FPNCountryCode(rawValue: code)!
 
-		if let flag = UIImage(named: code, in: Bundle.FlagIcons, compatibleWith: nil) {
-			self.flag = flag
-		} else {
-			self.flag = UIImage(named: "unknown", in: Bundle.FlagIcons, compatibleWith: nil)
-		}
-	}
+        if let flag = UIImage(named: code, in: Bundle.FlagIcons, compatibleWith: nil) {
+            self.flag = flag
+        } else {
+            self.flag = UIImage(named: "unknown", in: Bundle.FlagIcons, compatibleWith: nil)
+        }
+    }
 }

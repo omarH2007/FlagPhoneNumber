@@ -50,6 +50,7 @@
 		0DA9CA0B2293E39500723B96 /* FlagPhoneNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D8C7134229296D40026E0C7 /* FlagPhoneNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DF48B4422917077006AB39C /* FPNFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF48B1622916F9F006AB39C /* FPNFormat.swift */; };
 		0DF48B4522917077006AB39C /* FPNSearchCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF48B1522916F9F006AB39C /* FPNSearchCountryViewController.swift */; };
+		F87012382DE45F1B0074C504 /* FBNCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87012372DE45F1B0074C504 /* FBNCountries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		0DF48B1522916F9F006AB39C /* FPNSearchCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPNSearchCountryViewController.swift; sourceTree = "<group>"; };
 		0DF48B1622916F9F006AB39C /* FPNFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPNFormat.swift; sourceTree = "<group>"; };
 		0DF48B3922917047006AB39C /* FlagPhoneNumber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlagPhoneNumber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F87012372DE45F1B0074C504 /* FBNCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBNCountries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				0D8C7134229296D40026E0C7 /* FlagPhoneNumber.h */,
 				0D8C7135229296D40026E0C7 /* Info.plist */,
 				0D1930012293078C002583B1 /* FPNCountryCode.swift */,
+				F87012372DE45F1B0074C504 /* FBNCountries.swift */,
 				0D1930002293078C002583B1 /* FPNDelegate.swift */,
 				0DF48B1622916F9F006AB39C /* FPNFormat.swift */,
 				0D192FF12293078B002583B1 /* FPNOBJCCountryKey.swift */,
@@ -338,6 +341,7 @@
 				0D19302A2293078C002583B1 /* FPNCountryCode.swift in Sources */,
 				0D19300B2293078C002583B1 /* NBRegExMatcher.m in Sources */,
 				0D19301C2293078C002583B1 /* NBPhoneNumberDefines.m in Sources */,
+				F87012382DE45F1B0074C504 /* FBNCountries.swift in Sources */,
 				0D1930212293078C002583B1 /* FPNCountryPickerDelegate.swift in Sources */,
 				0D1930272293078C002583B1 /* Bundle+Extension.swift in Sources */,
 			);
