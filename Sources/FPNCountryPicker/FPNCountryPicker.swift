@@ -97,14 +97,14 @@ open class FPNCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDat
 
                 for jsonObject in jsonObjects {
                     guard let countryObj = jsonObject as? NSDictionary else { return countries }
-                    guard let code = countryObj["code"] as? String, let phoneCode = countryObj["dial_code"] as? String, let name = countryObj["name"] as? String, let languageCode = countryObj["language_code"] as? String else { return countries }
+                    guard let code = countryObj["code"] as? String, let phoneCode = countryObj["dial_code"] as? String, let name = countryObj["name"] as? String, let languageCode = countryObj["language_code"] as? String, let languageDescription = countryObj["language_description"] as? String else { return countries }
 
                     if let locale = self.selectedLocale {
-                        let country = FPNCountry(code: code, name: locale.localizedString(forRegionCode: code) ?? name, phoneCode: phoneCode,languageCode: languageCode)
+                        let country = FPNCountry(code: code, name: locale.localizedString(forRegionCode: code) ?? name, phoneCode: phoneCode,languageCode: languageCode, languageDescription: languageDescription)
 
                         countries.append(country)
                     } else {
-                        let country = FPNCountry(code: code, name: name, phoneCode: phoneCode,languageCode: languageCode)
+                        let country = FPNCountry(code: code, name: name, phoneCode: phoneCode,languageCode: languageCode, languageDescription: languageDescription)
 
                         countries.append(country)
                     }
