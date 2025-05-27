@@ -18,7 +18,7 @@
     "dial_code": "+355",
     "code": "AL",
     "language_code": "sq",
-    "language_description": "Gjuha shqipe"
+    "language_description": "shqip Language"
   },
   {
     "name": "Algeria",
@@ -39,7 +39,7 @@
     "dial_code": "+376",
     "code": "AD",
     "language_code": "ca",
-    "language_description": "Llengua catalana"
+    "language_description": "català Language"
   },
   {
     "name": "Angola",
@@ -74,7 +74,7 @@
     "dial_code": "+374",
     "code": "AM",
     "language_code": "hy",
-    "language_description": "հայերեն լեզու"
+    "language_description": "հայերեն Language"
   },
   {
     "name": "Aruba",
@@ -102,7 +102,7 @@
     "dial_code": "+994",
     "code": "AZ",
     "language_code": "az",
-    "language_description": "Azərbaycan dili"
+    "language_description": "Azərbaycan Language"
   },
   {
     "name": "Bahamas",
@@ -123,7 +123,7 @@
     "dial_code": "+880",
     "code": "BD",
     "language_code": "bn",
-    "language_description": "বাংলা ভাষা"
+    "language_description": "বাংলা Language"
   },
   {
     "name": "Barbados",
@@ -137,7 +137,7 @@
     "dial_code": "+375",
     "code": "BY",
     "language_code": "be",
-    "language_description": "беларуская мова"
+    "language_description": "беларуская Language"
   },
   {
     "name": "Belgium",
@@ -186,7 +186,7 @@
     "dial_code": "+387",
     "code": "BA",
     "language_code": "bs",
-    "language_description": "bosanski jezik"
+    "language_description": "bosanski Language"
   },
   {
     "name": "Botswana",
@@ -221,7 +221,7 @@
     "dial_code": "+359",
     "code": "BG",
     "language_code": "bg",
-    "language_description": "български език"
+    "language_description": "български Language"
   },
   {
     "name": "Burkina Faso",
@@ -242,7 +242,7 @@
     "dial_code": "+855",
     "code": "KH",
     "language_code": "km",
-    "language_description": "ភាសាខ្មែរ"
+    "language_description": "ខ្មែរ Language"
   },
   {
     "name": "Cameroon",
@@ -298,7 +298,7 @@
     "dial_code": "+86",
     "code": "CN",
     "language_code": "zh",
-    "language_description": "中文语言"
+    "language_description": "中文 Language"
   },
   {
     "name": "Christmas Island",
@@ -368,7 +368,7 @@
     "dial_code": "+385",
     "code": "HR",
     "language_code": "hr",
-    "language_description": "hrvatski jezik"
+    "language_description": "hrvatski Language"
   },
   {
     "name": "Cuba",
@@ -389,14 +389,14 @@
     "dial_code": "+420",
     "code": "CZ",
     "language_code": "cs",
-    "language_description": "český jazyk"
+    "language_description": "čeština Language"
   },
   {
     "name": "Denmark",
     "dial_code": "+45",
     "code": "DK",
     "language_code": "da",
-    "language_description": "dansk sprog"
+    "language_description": "dansk Language"
   },
   {
     "name": "Djibouti",
@@ -452,21 +452,21 @@
     "dial_code": "+291",
     "code": "ER",
     "language_code": "ti",
-    "language_description": "ትግርኛ ቋንቋ"
+    "language_description": "ትግርኛ Language"
   },
   {
     "name": "Estonia",
     "dial_code": "+372",
     "code": "EE",
     "language_code": "et",
-    "language_description": "eesti keel"
+    "language_description": "eesti Language"
   },
   {
     "name": "Ethiopia",
     "dial_code": "+251",
     "code": "ET",
     "language_code": "am",
-    "language_description": "የአማርኛ ቋንቋ"
+    "language_description": "አማርኛ Language"
   },
   {
     "name": "Falkland Islands (Malvinas)",
@@ -480,7 +480,7 @@
     "dial_code": "+298",
     "code": "FO",
     "language_code": "fo",
-    "language_description": "føroyskt mál"
+    "language_description": "føroyskt Language"
   },
   {
     "name": "Fiji",
@@ -494,14 +494,14 @@
     "dial_code": "+358",
     "code": "FI",
     "language_code": "fi",
-    "language_description": "suomen kieli"
+    "language_description": "suomi Language"
   },
   {
     "name": "France",
     "dial_code": "+33",
     "code": "FR",
     "language_code": "fr",
-    "language_description": "Langue française"
+    "language_description": "français Language"
   },
   {
     "name": "French Guiana",
@@ -536,14 +536,14 @@
     "dial_code": "+995",
     "code": "GE",
     "language_code": "ka",
-    "language_description": "ქართული ენა"
+    "language_description": "ქართული Language"
   },
   {
     "name": "Germany",
     "dial_code": "+49",
     "code": "DE",
     "language_code": "de",
-    "language_description": "Deutsche Sprache"
+    "language_description": "Deutsch Language"
   },
   {
     "name": "Ghana",
@@ -564,14 +564,14 @@
     "dial_code": "+30",
     "code": "GR",
     "language_code": "el",
-    "language_description": "Ελληνική γλώσσα"
+    "language_description": "Ελληνικά Language"
   },
   {
     "name": "Greenland",
     "dial_code": "+299",
     "code": "GL",
     "language_code": "kl",
-    "language_description": "kalaallisut oqaasii"
+    "language_description": "kalaallisut Language"
   },
   {
     "name": "Grenada",
@@ -634,7 +634,7 @@
     "dial_code": "+509",
     "code": "HT",
     "language_code": "ht",
-    "language_description": "Lang kreyòl ayisyen"
+    "language_description": "kreyòl ayisyen Language"
   },
   {
     "name": "Holy See (Vatican City State)",
@@ -662,28 +662,28 @@
     "dial_code": "+36",
     "code": "HU",
     "language_code": "hu",
-    "language_description": "magyar nyelv"
+    "language_description": "magyar Language"
   },
   {
     "name": "Iceland",
     "dial_code": "+354",
     "code": "IS",
     "language_code": "is",
-    "language_description": "íslenska tungumálið"
+    "language_description": "íslenska Language"
   },
   {
     "name": "India",
     "dial_code": "+91",
     "code": "IN",
     "language_code": "hi",
-    "language_description": "हिन्दी भाषा"
+    "language_description": "हिन्दी Language"
   },
   {
     "name": "Indonesia",
     "dial_code": "+62",
     "code": "ID",
     "language_code": "id",
-    "language_description": "Bahasa Indonesia"
+    "language_description": "bahasa Indonesia Language"
   },
   {
     "name": "Iran, Islamic Republic of Persian Gulf",
@@ -725,7 +725,7 @@
     "dial_code": "+39",
     "code": "IT",
     "language_code": "it",
-    "language_description": "Lingua italiana"
+    "language_description": "italiano Language"
   },
   {
     "name": "Jamaica",
@@ -739,7 +739,7 @@
     "dial_code": "+81",
     "code": "JP",
     "language_code": "ja",
-    "language_description": "日本語の言語"
+    "language_description": "日本語 Language"
   },
   {
     "name": "Jersey",
@@ -760,7 +760,7 @@
     "dial_code": "+7",
     "code": "KZ",
     "language_code": "kk",
-    "language_description": "қазақ тілі"
+    "language_description": "қазақ Language"
   },
   {
     "name": "Kenya",
@@ -788,7 +788,7 @@
     "dial_code": "+82",
     "code": "KR",
     "language_code": "ko",
-    "language_description": "한국어 언어"
+    "language_description": "한국어 Language"
   },
   {
     "name": "Kuwait",
@@ -802,21 +802,21 @@
     "dial_code": "+996",
     "code": "KG",
     "language_code": "ky",
-    "language_description": "кыргыз тили"
+    "language_description": "кыргыз Language"
   },
   {
     "name": "Laos",
     "dial_code": "+856",
     "code": "LA",
     "language_code": "lo",
-    "language_description": "ພາສາລາວ"
+    "language_description": "ລາວ Language"
   },
   {
     "name": "Latvia",
     "dial_code": "+371",
     "code": "LV",
     "language_code": "lv",
-    "language_description": "latviešu valoda"
+    "language_description": "latviešu Language"
   },
   {
     "name": "Lebanon",
@@ -858,7 +858,7 @@
     "dial_code": "+370",
     "code": "LT",
     "language_code": "lt",
-    "language_description": "lietuvių kalba"
+    "language_description": "lietuvių Language"
   },
   {
     "name": "Luxembourg",
@@ -879,7 +879,7 @@
     "dial_code": "+389",
     "code": "MK",
     "language_code": "mk",
-    "language_description": "македонски јазик"
+    "language_description": "македонски Language"
   },
   {
     "name": "Madagascar",
@@ -900,14 +900,14 @@
     "dial_code": "+60",
     "code": "MY",
     "language_code": "ms",
-    "language_description": "Bahasa Melayu"
+    "language_description": "Melayu Language"
   },
   {
     "name": "Maldives",
     "dial_code": "+960",
     "code": "MV",
     "language_code": "dv",
-    "language_description": "ދިވެހި ބަސް"
+    "language_description": "ދިވެހި Language"
   },
   {
     "name": "Mali",
@@ -921,7 +921,7 @@
     "dial_code": "+356",
     "code": "MT",
     "language_code": "mt",
-    "language_description": "Lingwa Maltija"
+    "language_description": "Malti Language"
   },
   {
     "name": "Marshall Islands",
@@ -991,7 +991,7 @@
     "dial_code": "+976",
     "code": "MN",
     "language_code": "mn",
-    "language_description": "Монгол хэл"
+    "language_description": "Монгол Language"
   },
   {
     "name": "Montenegro",
@@ -1026,7 +1026,7 @@
     "dial_code": "+95",
     "code": "MM",
     "language_code": "my",
-    "language_description": "မြန်မာစာဘာသာ"
+    "language_description": "မြန်မာစာ Language"
   },
   {
     "name": "Namibia",
@@ -1047,14 +1047,14 @@
     "dial_code": "+977",
     "code": "NP",
     "language_code": "ne",
-    "language_description": "नेपाली भाषा"
+    "language_description": "नेपाली Language"
   },
   {
     "name": "Netherlands",
     "dial_code": "+31",
     "code": "NL",
     "language_code": "nl",
-    "language_description": "Nederlandse Taal"
+    "language_description": "Nederlands Language"
   },
   {
     "name": "New Caledonia",
@@ -1117,7 +1117,7 @@
     "dial_code": "+47",
     "code": "NO",
     "language_code": "no",
-    "language_description": "norsk språk"
+    "language_description": "norsk Language"
   },
   {
     "name": "Oman",
@@ -1187,14 +1187,14 @@
     "dial_code": "+48",
     "code": "PL",
     "language_code": "pl",
-    "language_description": "język polski"
+    "language_description": "polski Language"
   },
   {
     "name": "Portugal",
     "dial_code": "+351",
     "code": "PT",
     "language_code": "pt",
-    "language_description": "Língua portuguesa"
+    "language_description": "português Language"
   },
   {
     "name": "Puerto Rico",
@@ -1215,21 +1215,21 @@
     "dial_code": "+40",
     "code": "RO",
     "language_code": "ro",
-    "language_description": "Limba română"
+    "language_description": "română Language"
   },
   {
     "name": "Russia",
     "dial_code": "+7",
     "code": "RU",
     "language_code": "ru",
-    "language_description": "Русский язык"
+    "language_description": "Русский Language"
   },
   {
     "name": "Rwanda",
     "dial_code": "+250",
     "code": "RW",
     "language_code": "rw",
-    "language_description": "Ururimi rw'Ikinyarwanda"
+    "language_description": "Kinyarwanda Language"
   },
   {
     "name": "Reunion",
@@ -1327,7 +1327,7 @@
     "dial_code": "+381",
     "code": "RS",
     "language_code": "sr",
-    "language_description": "српски језик"
+    "language_description": "српски Language"
   },
   {
     "name": "Seychelles",
@@ -1355,14 +1355,14 @@
     "dial_code": "+421",
     "code": "SK",
     "language_code": "sk",
-    "language_description": "slovenský jazyk"
+    "language_description": "slovenčina Language"
   },
   {
     "name": "Slovenia",
     "dial_code": "+386",
     "code": "SI",
     "language_code": "sl",
-    "language_description": "slovenski jezik"
+    "language_description": "slovenščina Language"
   },
   {
     "name": "Solomon Islands",
@@ -1376,14 +1376,14 @@
     "dial_code": "+252",
     "code": "SO",
     "language_code": "so",
-    "language_description": "Afka Soomaaliga"
+    "language_description": "Soomaali Language"
   },
   {
     "name": "South Africa",
     "dial_code": "+27",
     "code": "ZA",
     "language_code": "af",
-    "language_description": "Afrikaanse taal"
+    "language_description": "Afrikaans Language"
   },
   {
     "name": "South Sudan",
@@ -1397,14 +1397,14 @@
     "dial_code": "+34",
     "code": "ES",
     "language_code": "es",
-    "language_description": "Idioma español"
+    "language_description": "español Language"
   },
   {
     "name": "Sri Lanka",
     "dial_code": "+94",
     "code": "LK",
     "language_code": "si",
-    "language_description": "සිංහල භාෂාව"
+    "language_description": "සිංහල Language"
   },
   {
     "name": "Sudan",
@@ -1439,7 +1439,7 @@
     "dial_code": "+46",
     "code": "SE",
     "language_code": "sv",
-    "language_description": "svenska språket"
+    "language_description": "svenska Language"
   },
   {
     "name": "Switzerland",
@@ -1467,21 +1467,21 @@
     "dial_code": "+992",
     "code": "TJ",
     "language_code": "tg",
-    "language_description": "забони тоҷикӣ"
+    "language_description": "тоҷикӣ Language"
   },
   {
     "name": "Tanzania, United Republic of Tanzania",
     "dial_code": "+255",
     "code": "TZ",
     "language_code": "sw",
-    "language_description": "Lugha ya Kiswahili"
+    "language_description": "Kiswahili Language"
   },
   {
     "name": "Thailand",
     "dial_code": "+66",
     "code": "TH",
     "language_code": "th",
-    "language_description": "ภาษาไทย"
+    "language_description": "ไทย Language"
   },
   {
     "name": "Timor-Leste",
@@ -1530,14 +1530,14 @@
     "dial_code": "+90",
     "code": "TR",
     "language_code": "tr",
-    "language_description": "Türkçe Dili"
+    "language_description": "Türkçe Language"
   },
   {
     "name": "Turkmenistan",
     "dial_code": "+993",
     "code": "TM",
     "language_code": "tk",
-    "language_description": "türkmen dili"
+    "language_description": "türkmen Language"
   },
   {
     "name": "Turks and Caicos Islands",
@@ -1565,7 +1565,7 @@
     "dial_code": "+380",
     "code": "UA",
     "language_code": "uk",
-    "language_description": "українська мова"
+    "language_description": "українська Language"
   },
   {
     "name": "United Arab Emirates",
@@ -1600,7 +1600,7 @@
     "dial_code": "+998",
     "code": "UZ",
     "language_code": "uz",
-    "language_description": "o‘zbek tili"
+    "language_description": "o‘zbek Language"
   },
   {
     "name": "Vanuatu",
@@ -1621,7 +1621,7 @@
     "dial_code": "+84",
     "code": "VN",
     "language_code": "vi",
-    "language_description": "Ngôn ngữ Tiếng Việt"
+    "language_description": "Tiếng Việt Language"
   },
   {
     "name": "Virgin Islands, British",
