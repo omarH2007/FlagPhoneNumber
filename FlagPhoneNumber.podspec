@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 	s.resource_bundles = {'FlagPhoneNumber' => ['Sources/Resources/**/*']}
 	s.swift_version = '5.0'
 	s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
-        s.dependency 'libPhoneNumberiOS'
+        s.dependency 'libPhoneNumber-iOS'
 
 	
 end
