@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import libPhoneNumber_iOS
 
 open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
@@ -55,7 +56,9 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     public var canChangeCountry: Bool = true
     
     private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
-    private lazy var phoneUtil: NBPhoneNumberUtil = NBPhoneNumberUtil()
+    private  var phoneUtil: NBPhoneNumberUtil  {
+        return NBPhoneNumberUtil.sharedInstance()
+    }
     private var nbPhoneNumber: NBPhoneNumber? {
         didSet{
             self.validPhoneNumber = nbPhoneNumber
