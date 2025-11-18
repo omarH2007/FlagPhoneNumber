@@ -48,6 +48,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         stack.spacing = 5
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.isLayoutMarginsRelativeArrangement = true
+        stack.semanticContentAttribute = .forceRightToLeft
         stack.layoutMargins = .init(top: 5, left: 10, bottom: 5, right: 10)
         return stack
     }()
